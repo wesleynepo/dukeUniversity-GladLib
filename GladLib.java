@@ -9,10 +9,11 @@ public class GladLib {
 	private ArrayList<String> nameList;
 	private ArrayList<String> animalList;
 	private ArrayList<String> timeList;
+	private ArrayList<String> verbList;
 	
 	private Random myRandom;
 	
-	private static String dataSourceURL = "http://dukelearntoprogram.com/course3/data";
+	private static String dataSourceURL = "C:/Programacao/SolvingProblems/GladLib/data";
 	private static String dataSourceDirectory = "data";
 	
 	public GladLib(){
@@ -32,7 +33,8 @@ public class GladLib {
 		countryList = readIt(source+"/country.txt");
 		nameList = readIt(source+"/name.txt");		
 		animalList = readIt(source+"/animal.txt");
-		timeList = readIt(source+"/timeframe.txt");		
+		timeList = readIt(source+"/timeframe.txt");	
+		verbList = readIt(source+"/verb.txt");	
 	}
 	
 	private String randomFrom(ArrayList<String> source){
@@ -64,6 +66,9 @@ public class GladLib {
 		}
 		if (label.equals("number")){
 			return ""+myRandom.nextInt(50)+5;
+		}
+		if (label.equals("verb")){
+			return randomFrom(verbList);
 		}
 		return "**UNKNOWN**";
 	}
