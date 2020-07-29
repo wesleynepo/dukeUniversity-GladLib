@@ -14,7 +14,7 @@ public class GladLib {
 	
 	private Random myRandom;
 	
-	private static String dataSourceURL = "C:/Programacao/SolvingProblems/GladLib/data";
+	private static String dataSourceURL = "http://dukelearntoprogram.com/course3/data";
 	private static String dataSourceDirectory = "data";
 	
 	public GladLib(){
@@ -138,7 +138,7 @@ public class GladLib {
 	
 	public void makeStory(){
 	    System.out.println("\n");
-		String story = fromTemplate("data/madtemplate.txt");
+		String story = fromTemplate("data/madtemplate2.txt");
 		printOut(story, 60);
 	}
 	
