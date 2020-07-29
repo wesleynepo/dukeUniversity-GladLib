@@ -11,6 +11,7 @@ public class GladLib {
 	private ArrayList<String> timeList;
 	private ArrayList<String> verbList;
 	private ArrayList<String> fruitList;
+	private ArrayList<String> usedList;
 	
 	private Random myRandom;
 	
@@ -87,6 +88,13 @@ public class GladLib {
 		String prefix = w.substring(0,first);
 		String suffix = w.substring(last+1);
 		String sub = getSubstitute(w.substring(first+1,last));
+		
+		while(alreadyUsedWord(sub)) {
+		  sub = getSubstitute(w.substring(first+1,last));
+		} 
+		
+		usedList.add(sub);
+		
 		return prefix+sub+suffix;
 	}
 	
@@ -104,6 +112,7 @@ public class GladLib {
 	
 	private String fromTemplate(String source){
 		String story = "";
+		usedList.clear();
 		if (source.startsWith("http")) {
 			URLResource resource = new URLResource(source);
 			for(String word : resource.words()){
@@ -142,6 +151,8 @@ public class GladLib {
 		printOut(story, 60);
 	}
 	
+	public boolean alreadyUsedWord(String word) { return usedList.contains(word); }
 
+	
 
 }
